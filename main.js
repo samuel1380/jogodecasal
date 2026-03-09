@@ -1,14 +1,14 @@
 const questions = [
-    { text: "Qual é a sua lembrança favorita do nosso primeiro encontro?", icon: "❤️", theme: "purple" },
-    { text: "O que você mais admira em mim quando estamos juntos?", icon: "💑", theme: "blue" },
-    { text: "Qual é a nossa melhor tradição como casal até agora?", icon: "🌟", theme: "purple" },
-    { text: "O que você acha que me deixa mais feliz quando fazemos algo juntos?", icon: "😊", theme: "blue" },
-    { text: "Qual é a próxima aventura que você gostaria de fazer comigo?", icon: "🗺️", theme: "purple" },
-    { text: "Se pudéssemos reviver um dia do nosso relacionamento, qual seria?", icon: "⏳", theme: "blue" },
-    { text: "Qual mania minha você acha mais engraçada?", icon: "🤭", theme: "purple" },
-    { text: "Qual foi o momento em que você percebeu que me amava?", icon: "💘", theme: "blue" },
-    { text: "O que eu faço que te faz se sentir mais amado(a)?", icon: "🥰", theme: "purple" },
-    { text: "Qual sonho nosso você mais quer realizar nos próximos anos?", icon: "✨", theme: "blue" }
+    { text: "O que eu mais gosto em você?", icon: "🥰", theme: "purple" },
+    { text: "Qual foi o momento em que eu me apaixonei por você?", icon: "💘", theme: "blue" },
+    { text: "O que eu mais sinto falta quando estamos longe?", icon: "😢", theme: "purple" },
+    { text: "Qual é o meu lugar favorito para estar com você?", icon: "🌅", theme: "blue" },
+    { text: "Qual elogio meu te marcou mais?", icon: "💬", theme: "purple" },
+    { text: "O que eu acho mais bonito no seu sorriso?", icon: "😍", theme: "blue" },
+    { text: "Qual foi o nosso melhor dia juntos até hoje?", icon: "✨", theme: "purple" },
+    { text: "O que me faz te abraçar do nada?", icon: "🤗", theme: "blue" },
+    { text: "Qual é a coisa que eu mais amo fazer com você?", icon: "💑", theme: "purple" },
+    { text: "O que você faz que me dá mais borboletas na barriga?", icon: "🦋", theme: "blue" }
 ];
 
 let currentCardIndex = 0;
