@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Casal - Conexão Amorosa</title>
+    <link rel="stylesheet" href="style.css?v=20">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Decorações flutuantes -->
+    <div class="bg-decorations">
+        <div class="floating-shape shape-1"><i class="fas fa-heart"></i></div>
+        <div class="floating-shape shape-2"><i class="fas fa-star"></i></div>
+        <div class="floating-shape shape-3"><i class="fas fa-heart"></i></div>
+        <div class="floating-shape shape-4"><i class="fas fa-diamond"></i></div>
+        <div class="floating-shape shape-5"><i class="fas fa-star"></i></div>
+        <div class="floating-shape shape-6"><i class="fas fa-heart"></i></div>
+        <div class="floating-shape shape-7"><i class="fas fa-moon"></i></div>
+        <div class="floating-shape shape-8"><i class="fas fa-heart"></i></div>
+        <div class="floating-shape shape-9"><i class="fas fa-star"></i></div>
+        <div class="floating-shape shape-10"><i class="fas fa-heart"></i></div>
+        <div class="floating-shape shape-11"><i class="fas fa-diamond"></i></div>
+        <div class="floating-shape shape-12"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <div id="app">
+        <!-- ==================== TELA INICIAL ==================== -->
+        <div id="start-screen" class="screen active">
+            <div class="start-content">
+                <div class="logo-container">
+                    <div class="logo-icon-ring">
+                        <div class="logo-icon-inner">
+                            <i class="fas fa-heart-pulse"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="game-title">
+                    <span class="title-line-1">Conexão</span>
+                    <span class="title-line-2">Amorosa</span>
+                </h1>
+                <p class="game-subtitle"><i class="fas fa-sparkles"></i> Descubra o quanto vocês se conhecem! <i
+                        class="fas fa-sparkles"></i></p>
+
+                <div class="start-info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-layer-group"></i>
+                        <span>10 Cartas</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Perguntas</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-trophy"></i>
+                        <span>Pontuação</span>
+                    </div>
+                </div>
+
+                <button id="btn-play" class="play-btn">
+                    <i class="fas fa-play"></i>
+                    <span>Começar o Jogo</span>
+                </button>
+
+                <p class="footer-text"><i class="fas fa-lock"></i> Feito com amor para casais <i
+                        class="fas fa-heart"></i></p>
+            </div>
+        </div>
+
+        <!-- ==================== TELA DE NOMES ==================== -->
+        <div id="names-screen" class="screen">
+            <div class="names-content">
+                <div class="names-header-icon">
+                    <i class="fas fa-user-group"></i>
+                </div>
+                <h2 class="names-title">Quem vai jogar?</h2>
+                <p class="names-subtitle">Digitem os nomes do casal</p>
+
+                <div class="name-inputs">
+                    <div class="name-input-group">
+                        <div class="input-icon"><i class="fas fa-heart"></i></div>
+                        <input type="text" id="player1-name" class="name-input" placeholder="Nome do(a) parceiro(a) 1"
+                            maxlength="15" autocomplete="off">
+                    </div>
+                    <div class="names-divider">
+                        <span>&</span>
+                    </div>
+                    <div class="name-input-group">
+                        <div class="input-icon"><i class="fas fa-heart"></i></div>
+                        <input type="text" id="player2-name" class="name-input" placeholder="Nome do(a) parceiro(a) 2"
+                            maxlength="15" autocomplete="off">
+                    </div>
+                </div>
+
+                <button id="btn-start-game" class="play-btn" disabled>
+                    <i class="fas fa-arrow-right"></i>
+                    <span>Vamos lá!</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== TELA DO JOGO ==================== -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="hud-item hud-p1">
+                    <div class="hud-icon"><i class="fas fa-heart"></i></div>
+                    <div class="hud-info">
+                        <span class="hud-label" id="hud-p1-name">Jogador 1</span>
+                        <span class="hud-value" id="score-p1">0</span>
+                    </div>
+                </div>
+                <div class="hud-item hud-card-count">
+                    <div class="hud-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="hud-info">
+                        <span class="hud-label">Carta</span>
+                        <span class="hud-value"><span id="current-card">1</span>/10</span>
+                    </div>
+                </div>
+                <div class="hud-item hud-p2">
+                    <div class="hud-icon"><i class="fas fa-heart"></i></div>
+                    <div class="hud-info">
+                        <span class="hud-label" id="hud-p2-name">Jogador 2</span>
+                        <span class="hud-value" id="score-p2">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="game-area">
+                <p class="tap-hint" id="tap-hint"><i class="fas fa-hand-pointer"></i> Toque na carta para revelar</p>
+
+                <div class="deck-container">
+                    <div id="card-element" class="playing-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="card-cover.jpg" alt="Carta Mistério dos Segredos" class="card-cover-img">
+                            </div>
+                            <div class="card-back" id="card-back-content">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deck-shadow deck-shadow-1"></div>
+                    <div class="deck-shadow deck-shadow-2"></div>
+                </div>
+
+                <div class="action-buttons hidden" id="action-buttons">
+                    <p class="question-prompt"><i class="fas fa-comments"></i> Quem acertou a resposta?</p>
+                    <div class="btn-group-vertical">
+                        <button id="btn-p1" class="action-btn p1-btn">
+                            <i class="fas fa-check-circle"></i> <span id="btn-p1-name">Jogador 1</span>
+                        </button>
+                        <button id="btn-p2" class="action-btn p2-btn">
+                            <i class="fas fa-check-circle"></i> <span id="btn-p2-name">Jogador 2</span>
+                        </button>
+                        <button id="btn-both" class="action-btn both-btn">
+                            <i class="fas fa-heart"></i> Os dois!
+                        </button>
+                        <button id="btn-none" class="action-btn none-btn">
+                            <i class="fas fa-times-circle"></i> Ninguém
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TELA FINAL ==================== -->
+        <div id="end-screen" class="screen">
+            <div class="end-content">
+                <div class="end-icon-container">
+                    <div class="end-icon-ring">
+                        <i class="fas fa-trophy" id="end-icon"></i>
+                    </div>
+                </div>
+
+                <h1 class="end-title" id="end-title">Fim de Jogo!</h1>
+
+                <div class="final-scoreboard">
+                    <div class="final-player-card" id="final-p1-card">
+                        <div class="final-player-avatar"><i class="fas fa-user"></i></div>
+                        <p class="final-player-name" id="final-p1-name">Jogador 1</p>
+                        <p class="final-player-score" id="final-p1-score">0</p>
+                        <p class="final-player-label">pontos</p>
+                    </div>
+                    <div class="final-vs">VS</div>
+                    <div class="final-player-card" id="final-p2-card">
+                        <div class="final-player-avatar"><i class="fas fa-user"></i></div>
+                        <p class="final-player-name" id="final-p2-name">Jogador 2</p>
+                        <p class="final-player-score" id="final-p2-score">0</p>
+                        <p class="final-player-label">pontos</p>
+                    </div>
+                </div>
+
+                <div class="winner-announcement" id="winner-announcement">
+                    <div class="winner-crown"><i class="fas fa-crown"></i></div>
+                    <p class="winner-text" id="winner-text">Vencedor!</p>
+                </div>
+
+                <div class="prize-section" id="prize-section">
+                    <p class="prize-label">O prêmio é...</p>
+                    <div class="prize-icon">💋</div>
+                    <p class="prize-text">Um selinho do(a) perdedor(a)!</p>
+                </div>
+
+                <p id="final-message" class="final-message"></p>
+
+                <button id="btn-restart" class="play-btn">
+                    <i class="fas fa-redo"></i>
+                    <span>Jogar Novamente</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js?v=20"></script>
+</body>
+
+</html>
